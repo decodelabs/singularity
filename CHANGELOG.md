@@ -1,3 +1,4 @@
+## v0.2.0 (2023-10-30)
 * Consolidated getQueryTree methods to parse*() format
 * Added Path parser
 * Added IP support
