@@ -1,3 +1,6 @@
+## v0.2.2 (2023-10-30)
+* Handle URLs with no scheme as https
+
 ## v0.2.1 (2023-10-30)
 * Added PSR-17 Uri Factory
 
