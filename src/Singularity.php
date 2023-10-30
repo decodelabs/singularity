@@ -18,6 +18,9 @@ use DecodeLabs\Singularity\Urn\Generic as GenericUrn;
 
 class Singularity
 {
+    /**
+     * @return ($uri is null ? null : Uri)
+     */
     public static function uri(
         string|Uri|null $uri
     ): ?Uri {
@@ -58,6 +61,9 @@ class Singularity
         return $class::fromString($uri);
     }
 
+    /**
+     * @return ($uri is null ? null : Url)
+     */
     public static function url(
         string|Uri|null $uri
     ): ?Url {
@@ -75,6 +81,9 @@ class Singularity
         return $output;
     }
 
+    /**
+     * @return ($uri is null ? null : Urn)
+     */
     public static function urn(
         string|Uri|null $uri
     ): ?Urn {

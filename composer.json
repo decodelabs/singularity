@@ -11,13 +11,14 @@
     "require": {
         "php": "^8.0",
 
-        "decodelabs/exceptional": "^0.4.4",
         "decodelabs/archetype": "^0.2.14",
-
-        "psr/http-message": "^2.0",
         "decodelabs/collections": "^0.8.4",
         "decodelabs/compass": "^0.1.5",
-        "decodelabs/glitch-support": "^0.4.4"
+        "decodelabs/exceptional": "^0.4.4",
+        "decodelabs/glitch-support": "^0.4.4",
+
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^2.0"
     },
     "require-dev": {
         "decodelabs/glitch": "^0.18.8",
