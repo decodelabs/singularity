@@ -10,39 +10,39 @@ declare(strict_types=1);
 namespace DecodeLabs\Singularity\Url;
 
 use Closure;
+use DecodeLabs\Compass\Ip;
 use DecodeLabs\Exceptional;
-use DecodeLabs\Singularity\Path;
 
-trait NoPathTrait
+trait NoHostTrait
 {
-    public function withPath(
-        string|Path|Closure|null $path
+    public function withHost(
+        string|Ip|Closure|null $host
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a path'
+            'This URL does not support a host'
         );
     }
 
-    public function getPath(): string
+    public function getHost(): string
     {
         return '';
     }
 
-    public function parsePath(): ?Path
+    public function parseIp(): ?Ip
     {
         return null;
     }
 
-    public function hasPath(): bool
+    public function hasHost(): bool
     {
         return false;
     }
 
-    public static function normalizePath(
-        string|Path|null $path
+    public static function normalizeHost(
+        string|Ip|null $host
     ): ?string {
         throw Exceptional::Logic(
-            'This URL does not support a path'
+            'This URL does not support a host'
         );
     }
 }

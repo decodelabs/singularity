@@ -9,47 +9,13 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity;
 
-use DecodeLabs\Exceptional;
+use Closure;
 
 trait UrnTrait
 {
     public function getScheme(): string
     {
         return 'urn';
-    }
-
-
-    public function withPath(?string $path): static
-    {
-        throw Exceptional::BadMethodCall(
-            'Typed URNs cannot change namespace'
-        );
-    }
-
-    public function getPath(): string
-    {
-        return $this->getNamespace() . ':' . $this->getIdentifier();
-    }
-
-    public function hasPath(): bool
-    {
-        return true;
-    }
-
-    public static function normalizePath(?string $path): ?string
-    {
-        if ($path === null) {
-            return null;
-        }
-
-        if (!preg_match('/^([a-z0-9][a-z0-9-]{1,31}):(.+)$/i', $path)) {
-            throw Exceptional::InvalidArgument(
-                'Invalid URN path: ' . $path
-            );
-        }
-
-        $parts = explode(':', $path, 2);
-        return static::normalizeNamespace($parts[0]) . ':' . static::normalizeIdentifier($parts[1]);
     }
 
 
@@ -63,9 +29,15 @@ trait UrnTrait
         return $namespace;
     }
 
-    public function withIdentifier(string $nss): static
-    {
+    public function withIdentifier(
+        string|Closure $nss
+    ): static {
         $output = clone $this;
+
+        if ($nss instanceof Closure) {
+            $nss = $nss($output->getIdentifier(), $this);
+        }
+
         $output->identifier = static::normalizeIdentifier($nss);
 
         return $output;

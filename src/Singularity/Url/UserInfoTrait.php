@@ -9,19 +9,27 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use Closure;
+
 trait UserInfoTrait
 {
     use UsernameTrait;
 
     protected ?string $password = null;
 
-    public function withPassword(?string $password): static
-    {
+    public function withPassword(
+        string|Closure|null $password
+    ): static {
         if ($password === $this->password) {
             return $this;
         }
 
         $output = clone $this;
+
+        if ($password instanceof Closure) {
+            $password = $password($this->password, $this);
+        }
+
         $output->password = static::normalizeUserInfo($password);
 
         return $output;
@@ -38,10 +46,21 @@ trait UserInfoTrait
     }
 
     public function withUserInfo(
-        ?string $username,
-        ?string $password = null
+        string|Closure|null $username,
+        string|null $password = null
     ): static {
         $output = clone $this;
+
+        if ($username instanceof Closure) {
+            $result = $username($this->username, $this->password, $this);
+
+            if ($result === null) {
+                $username = $password = null;
+            } else {
+                [$username, $password] = explode(':', $result);
+            }
+        }
+
         $output->username = static::normalizeUserInfo($username);
         $output->password = static::normalizeUserInfo($password);
 

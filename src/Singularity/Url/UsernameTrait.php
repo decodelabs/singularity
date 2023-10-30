@@ -9,19 +9,26 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use Closure;
 use DecodeLabs\Exceptional;
 
 trait UsernameTrait
 {
     protected ?string $username = null;
 
-    public function withUsername(?string $username): static
-    {
+    public function withUsername(
+        string|Closure|null $username
+    ): static {
         if ($username === $this->username) {
             return $this;
         }
 
         $output = clone $this;
+
+        if ($username instanceof Closure) {
+            $username = $username($this->username, $this);
+        }
+
         $output->username = static::normalizeUserInfo($username);
 
         return $output;
@@ -37,8 +44,9 @@ trait UsernameTrait
         return $this->username !== null;
     }
 
-    public function withPassword(?string $password): static
-    {
+    public function withPassword(
+        string|Closure|null $password
+    ): static {
         throw Exceptional::Logic(
             'This URL does not support a password'
         );
@@ -55,12 +63,16 @@ trait UsernameTrait
     }
 
     public function withUserInfo(
-        ?string $username,
-        ?string $password = null
+        string|Closure|null $username,
+        string|null $password = null
     ): static {
         $output = clone $this;
-        $output->username = static::normalizeUserInfo($username);
 
+        if ($username instanceof Closure) {
+            $username = $username($this->username, null, $this);
+        }
+
+        $output->username = static::normalizeUserInfo($username);
         return $output;
     }
 

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Urn;
 
+use Closure;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Singularity\Urn;
 use DecodeLabs\Singularity\UrnTrait;
@@ -42,16 +43,15 @@ class Generic implements Urn
         $this->identifier = static::normalizeIdentifier($identifier);
     }
 
-    public function withPath(?string $path): static
-    {
-        $path = static::normalizePath($path);
-        $parts = explode(':', (string)$path, 2);
-        return new static($parts[0], $parts[1]);
-    }
-
-    public function withNamespace(string $namespace): static
-    {
+    public function withNamespace(
+        string|Closure $namespace
+    ): static {
         $output = clone $this;
+
+        if ($namespace instanceof Closure) {
+            $namespace = $namespace($this->namespace, $this);
+        }
+
         $output->namespace = static::normalizeNamespace($namespace);
 
         return $output;

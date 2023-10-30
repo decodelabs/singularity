@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace DecodeLabs;
 
+use DecodeLabs\Singularity\Path;
 use DecodeLabs\Singularity\Uri;
 use DecodeLabs\Singularity\Url;
 use DecodeLabs\Singularity\Url\Generic as GenericUrl;
@@ -89,5 +90,31 @@ class Singularity
         }
 
         return $output;
+    }
+
+    public static function path(
+        string|Path|Url|null $path,
+        ?string $separator = null
+    ): ?Path {
+        if ($path instanceof Url) {
+            $path = $path->getPath();
+        }
+
+        if ($path === null) {
+            return null;
+        }
+
+        if ($path instanceof Path) {
+            return $path;
+        }
+
+        return Path::fromString($path, $separator);
+    }
+
+    public static function canonicalPath(
+        string|Path|Url|null $path,
+        ?string $separator = null
+    ): ?Path {
+        return self::path($path, $separator)?->canonicalize();
     }
 }

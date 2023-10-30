@@ -9,13 +9,22 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use Closure;
+use DecodeLabs\Singularity\Path;
+
 trait PathTrait
 {
     protected ?string $path = null;
 
-    public function withPath(string $path): static
-    {
+    public function withPath(
+        string|Path|Closure|null $path
+    ): static {
         $output = clone $this;
+
+        if ($path instanceof Closure) {
+            $path = $path($this->parsePath(), $this);
+        }
+
         $output->path = static::normalizePath($path);
 
         return $output;
@@ -31,13 +40,27 @@ trait PathTrait
         return $this->path !== null;
     }
 
-    public static function normalizePath(?string $path): ?string
+    public function parsePath(): ?Path
     {
+        if ($this->path === null) {
+            return null;
+        }
+
+        return Path::fromString($this->path);
+    }
+
+    public static function normalizePath(
+        string|Path|null $path
+    ): ?string {
         if (
             $path === null ||
             $path === ''
         ) {
             return null;
+        }
+
+        if ($path instanceof Path) {
+            $path = $path->__toString();
         }
 
         $path = (string)preg_replace_callback(

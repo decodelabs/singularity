@@ -9,17 +9,25 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use Closure;
+
 trait FragmentTrait
 {
     protected ?string $fragment = null;
 
-    public function withFragment(?string $fragment): static
-    {
+    public function withFragment(
+        string|Closure|null $fragment
+    ): static {
         if ($fragment === $this->fragment) {
             return $this;
         }
 
         $output = clone $this;
+
+        if ($fragment instanceof Closure) {
+            $fragment = $fragment($this->getFragment(), $this);
+        }
+
         $output->fragment = static::normalizeFragment($fragment);
 
         return $output;
