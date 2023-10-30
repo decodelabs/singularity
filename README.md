@@ -3,7 +3,7 @@
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/decodelabs/singularity?style=flat)](https://packagist.org/packages/decodelabs/singularity)
 [![Latest Version](https://img.shields.io/packagist/v/decodelabs/singularity.svg?style=flat)](https://packagist.org/packages/decodelabs/singularity)
 [![Total Downloads](https://img.shields.io/packagist/dt/decodelabs/singularity.svg?style=flat)](https://packagist.org/packages/decodelabs/singularity)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/decodelabs/singularity/Integrate)](https://github.com/string|int|floatdecodelabs/singularity/actions/workflows/integrate.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/decodelabs/singularity/Integrate)](https://github.com/decodelabs/singularity/actions/workflows/integrate.yml)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-44CC11.svg?longCache=true&style=flat)](https://github.com/phpstan/phpstan)
 [![License](https://img.shields.io/packagist/l/decodelabs/singularity?style=flat)](https://packagist.org/packages/decodelabs/singularity)
 
