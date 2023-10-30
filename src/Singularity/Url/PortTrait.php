@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use Closure;
 use DecodeLabs\Exceptional;
 
 trait PortTrait
@@ -16,13 +17,18 @@ trait PortTrait
     protected ?int $port = null;
 
     public function withPort(
-        int|string|null $port
+        int|string|Closure|null $port
     ): static {
         if ($port === $this->port) {
             return $this;
         }
 
         $output = clone $this;
+
+        if ($port instanceof Closure) {
+            $port = $port($this->port, $this);
+        }
+
         $output->port = static::normalizePort($port);
 
         return $output;

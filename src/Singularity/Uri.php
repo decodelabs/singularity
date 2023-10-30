@@ -17,9 +17,4 @@ interface Uri
     public static function fromString(string $uri): static;
 
     public function getScheme(): string;
-
-    public function withPath(string $path): static;
-    public function getPath(): string;
-    public function hasPath(): bool;
-    public static function normalizePath(?string $path): ?string;
 }

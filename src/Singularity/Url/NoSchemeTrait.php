@@ -9,12 +9,14 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use Closure;
 use DecodeLabs\Exceptional;
 
 trait NoSchemeTrait
 {
-    public function withScheme(string $scheme): static
-    {
+    public function withScheme(
+        string|Closure $scheme
+    ): static {
         throw Exceptional::Logic(
             'Typed URLs do not support schemes'
         );

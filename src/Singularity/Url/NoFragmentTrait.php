@@ -9,12 +9,14 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use Closure;
 use DecodeLabs\Exceptional;
 
 trait NoFragmentTrait
 {
-    public function withFragment(?string $fragment): static
-    {
+    public function withFragment(
+        string|Closure|null $fragment
+    ): static {
         throw Exceptional::Logic(
             'This URL does not support a fragment'
         );

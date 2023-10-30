@@ -17,6 +17,7 @@ class Generic implements
     Url,
     Dumpable
 {
+    use SchemeTrait;
     use UserInfoTrait;
     use HostTrait;
     use PortTrait;
@@ -24,8 +25,6 @@ class Generic implements
     use PathTrait;
     use QueryTrait;
     use FragmentTrait;
-
-    protected string $scheme;
 
     public static function fromString(string $uri): static
     {
@@ -71,32 +70,6 @@ class Generic implements
         $this->fragment = static::normalizeFragment($fragment);
     }
 
-    public function withScheme(string $scheme): static
-    {
-        $output = clone $this;
-        $output->scheme = static::normalizeScheme($scheme);
-
-        return $output;
-    }
-
-    public function getScheme(): string
-    {
-        return $this->scheme;
-    }
-
-    public static function normalizeScheme(string $scheme): string
-    {
-        $scheme = strtolower($scheme);
-
-        if (!preg_match('/^[a-z][a-z0-9+.-]*$/', $scheme)) {
-            throw Exceptional::InvalidArgument(
-                'Invalid scheme: ' . $scheme
-            );
-        }
-
-        return $scheme;
-    }
-
 
     /**
      * Convert to string
@@ -131,5 +104,16 @@ class Generic implements
     public function glitchDump(): iterable
     {
         yield 'definition' => $this->__toString();
+
+        yield 'meta' => [
+            'scheme' => $this->scheme,
+            'username' => $this->username,
+            'password' => $this->password,
+            'host' => $this->host,
+            'port' => $this->port,
+            'path' => $this->path,
+            'query' => $this->query,
+            'fragment' => $this->fragment
+        ];
     }
 }

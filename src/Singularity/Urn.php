@@ -9,11 +9,18 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity;
 
+use Closure;
+
 interface Urn extends Uri
 {
     public function getNamespace(): string;
 
-    public function withIdentifier(string $nss): static;
+    /**
+     * @param string|Closure(string, static):string $nss
+     */
+    public function withIdentifier(
+        string|Closure $nss
+    ): static;
     public function getIdentifier(): string;
     public static function normalizeIdentifier(string $nss): string;
 }
