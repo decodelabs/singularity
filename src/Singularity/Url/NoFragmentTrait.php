@@ -32,6 +32,11 @@ trait NoFragmentTrait
         return false;
     }
 
+    public function isJustFragment(): bool
+    {
+        return false;
+    }
+
     public static function normalizeFragment(?string $fragment): ?string
     {
         throw Exceptional::Logic(

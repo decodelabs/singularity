@@ -67,6 +67,11 @@ trait UserInfoTrait
         return $output;
     }
 
+    public function hasUserInfo(): bool
+    {
+        return $this->hasUsername() || $this->hasPassword();
+    }
+
     public function getUserInfo(): string
     {
         $output = $this->getUsername();
