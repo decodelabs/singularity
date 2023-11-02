@@ -39,7 +39,7 @@ class Generic implements
         }
 
         return new static(
-            scheme: $parts['scheme'] ?? 'https',
+            scheme: $parts['scheme'] ?? null,
             username: $parts['user'] ?? null,
             password: $parts['pass'] ?? null,
             host: $parts['host'] ?? null,
@@ -51,7 +51,7 @@ class Generic implements
     }
 
     final public function __construct(
-        string $scheme,
+        ?string $scheme,
         ?string $username = null,
         ?string $password = null,
         ?string $host = null,
