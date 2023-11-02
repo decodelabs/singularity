@@ -14,7 +14,7 @@ use DecodeLabs\Exceptional;
 
 trait SchemeTrait
 {
-    protected string $scheme;
+    protected ?string $scheme;
 
     public function withScheme(
         string|Closure $scheme
@@ -22,7 +22,7 @@ trait SchemeTrait
         $output = clone $this;
 
         if ($scheme instanceof Closure) {
-            $scheme = $scheme($this->scheme, $this);
+            $scheme = $scheme($this->scheme ?? 'https', $this);
         }
 
         $output->scheme = static::normalizeScheme($scheme);
@@ -32,11 +32,16 @@ trait SchemeTrait
 
     public function getScheme(): string
     {
-        return $this->scheme;
+        return $this->scheme ?? 'https';
     }
 
-    public static function normalizeScheme(string $scheme): string
-    {
+    public static function normalizeScheme(
+        ?string $scheme
+    ): ?string {
+        if ($scheme === null) {
+            return null;
+        }
+
         $scheme = strtolower($scheme);
 
         if (!preg_match('/^[a-z][a-z0-9+.-]*$/', $scheme)) {

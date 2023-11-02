@@ -1,3 +1,5 @@
+* Added support for no-schema HTTPS URLs
+
 ## v0.2.2 (2023-10-30)
 * Handle URLs with no scheme as https
 

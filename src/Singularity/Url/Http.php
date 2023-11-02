@@ -15,11 +15,13 @@ class Http extends Generic
 {
     public const SCHEMES = [
         'http' => 80,
-        'https' => 443
+        'https' => 443,
+        null => 443
     ];
 
-    public static function normalizeScheme(string $scheme): string
-    {
+    public static function normalizeScheme(
+        ?string $scheme
+    ): ?string {
         $scheme = parent::normalizeScheme($scheme);
 
         if (!isset(self::SCHEMES[$scheme])) {

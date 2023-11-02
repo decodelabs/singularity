@@ -34,7 +34,10 @@ class Singularity
 
         if (!preg_match('/^([a-z][a-z0-9+.-]*):/i', $uri, $matches)) {
             $scheme = 'Http';
-            $uri = 'https://' . $uri;
+
+            if (substr($uri, 0, 2) !== '//') {
+                $uri = 'https://' . $uri;
+            }
         } else {
             $scheme = ucfirst(strtolower($matches[1]));
         }
