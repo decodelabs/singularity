@@ -18,8 +18,13 @@ trait NoSchemeTrait
         string|Closure $scheme
     ): static {
         throw Exceptional::Logic(
-            'Typed URLs do not support schemes'
+            'Typed URLs do not support changing schemes'
         );
+    }
+
+    public function hasScheme(): bool
+    {
+        return true;
     }
 
     public function getScheme(): string

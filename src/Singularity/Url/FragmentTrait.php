@@ -43,6 +43,17 @@ trait FragmentTrait
         return $this->fragment !== null;
     }
 
+    public function isJustFragment(): bool
+    {
+        return $this->hasFragment() &&
+            !$this->hasScheme() &&
+            !$this->hasUserInfo() &&
+            !$this->hasHost() &&
+            !$this->hasPort() &&
+            !$this->hasPath() &&
+            !$this->hasQuery();
+    }
+
     public static function normalizeFragment(?string $fragment): ?string
     {
         if (

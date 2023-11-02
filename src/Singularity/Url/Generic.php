@@ -32,7 +32,7 @@ class Generic implements
 
         if ($parts === false) {
             throw Exceptional::InvalidArgument(
-                'Unable to parse uri',
+                'Unable to parse uri: ' . $uri,
                 null,
                 $uri
             );

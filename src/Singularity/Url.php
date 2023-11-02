@@ -23,6 +23,8 @@ interface Url extends Uri, UriInterface
         string|Closure $scheme
     ): static;
 
+    public function hasScheme(): bool;
+
     /**
      * @param string|Closure(?string, static):?string|null $username
      */
@@ -48,6 +50,7 @@ interface Url extends Uri, UriInterface
         string|Closure|null $username,
         string|null $password = null
     ): static;
+    public function hasUserInfo(): bool;
     public static function normalizeUserInfo(?string $credential): ?string;
 
     /**
@@ -114,5 +117,6 @@ interface Url extends Uri, UriInterface
         string|Closure|null $fragment
     ): static;
     public function hasFragment(): bool;
+    public function isJustFragment(): bool;
     public static function normalizeFragment(?string $fragment): ?string;
 }

@@ -35,6 +35,11 @@ trait SchemeTrait
         return $this->scheme ?? 'https';
     }
 
+    public function hasScheme(): bool
+    {
+        return $this->scheme !== null;
+    }
+
     public static function normalizeScheme(
         ?string $scheme
     ): ?string {
