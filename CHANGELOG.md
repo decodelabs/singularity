@@ -1,3 +1,4 @@
+## v0.2.3 (2023-11-02)
 * Added support for no-schema HTTPS URLs
 
 ## v0.2.2 (2023-10-30)
