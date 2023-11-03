@@ -26,8 +26,9 @@ class Generic implements
     use QueryTrait;
     use FragmentTrait;
 
-    public static function fromString(string $uri): static
-    {
+    public static function fromString(
+        string $uri
+    ): static {
         $parts = parse_url($uri);
 
         if ($parts === false) {

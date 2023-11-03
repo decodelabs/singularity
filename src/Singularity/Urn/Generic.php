@@ -24,8 +24,9 @@ class Generic implements Urn
     /**
      * Create Generic URN from string
      */
-    public static function fromString(string $urn): static
-    {
+    public static function fromString(
+        string $urn
+    ): static {
         if (!preg_match('/^urn:([a-z0-9][a-z0-9-]{1,31}):(.+)$/i', $urn, $matches)) {
             throw Exceptional::InvalidArgument(
                 'Invalid URN: ' . $urn

@@ -26,8 +26,9 @@ class Mailto implements
     use QueryTrait;
     use NoFragmentTrait;
 
-    public static function fromString(string $uri): static
-    {
+    public static function fromString(
+        string $uri
+    ): static {
         $parts = parse_url('http://' . parse_url($uri, PHP_URL_PATH) . '?' . parse_url($uri, PHP_URL_QUERY));
 
         if ($parts === false) {

@@ -54,8 +54,9 @@ trait FragmentTrait
             !$this->hasQuery();
     }
 
-    public static function normalizeFragment(?string $fragment): ?string
-    {
+    public static function normalizeFragment(
+        ?string $fragment
+    ): ?string {
         if (
             $fragment === null ||
             $fragment === '' ||

@@ -86,8 +86,9 @@ trait UsernameTrait
         return $this->hasUsername();
     }
 
-    public static function normalizeUserInfo(?string $credential): ?string
-    {
+    public static function normalizeUserInfo(
+        ?string $credential
+    ): ?string {
         if (
             $credential === null ||
             $credential === ''
