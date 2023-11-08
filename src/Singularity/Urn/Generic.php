@@ -36,6 +36,9 @@ class Generic implements Urn
         return new static($matches[1], $matches[2]);
     }
 
+    /**
+     * Init with namespace and identifier
+     */
     final public function __construct(
         string $namespace,
         string $identifier
@@ -44,6 +47,9 @@ class Generic implements Urn
         $this->identifier = static::normalizeIdentifier($identifier);
     }
 
+    /**
+     * Replace namespace
+     */
     public function withNamespace(
         string|Closure $namespace
     ): static {
@@ -58,8 +64,19 @@ class Generic implements Urn
         return $output;
     }
 
+    /**
+     * Get namespace
+     */
     public function getNamespace(): string
     {
         return $this->namespace;
+    }
+
+    /**
+     * Convert to string
+     */
+    public function __toString(): string
+    {
+        return 'urn:' . $this->namespace . ':' . $this->identifier;
     }
 }

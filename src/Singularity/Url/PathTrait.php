@@ -71,6 +71,8 @@ trait PathTrait
             $path
         );
 
+        $path = '/' . ltrim($path, '/');
+
         return $path;
     }
 }

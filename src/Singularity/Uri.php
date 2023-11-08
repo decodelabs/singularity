@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity;
 
-interface Uri
+use Stringable;
+
+interface Uri extends Stringable
 {
     public const DELIMITERS = '!\$&\'\(\)\*\+,;=';
     public const VALID_CHARACTERS = 'a-zA-Z0-9_\-\.~\pL';

@@ -1,3 +1,6 @@
+* Added URL rebasing
+* Enforced Stringable interface
+
 ## v0.2.4 (2023-11-02)
 * Added support for fragment-only URLs
 * Added hasUserInfo() method
