@@ -1,3 +1,4 @@
+## v0.2.5 (2023-11-08)
 * Added URL rebasing
 * Enforced Stringable interface
 
