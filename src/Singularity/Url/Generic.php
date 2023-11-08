@@ -15,6 +15,7 @@ use DecodeLabs\Singularity\Url;
 
 class Generic implements
     Url,
+    Rebasable,
     Dumpable
 {
     use SchemeTrait;
@@ -25,9 +26,11 @@ class Generic implements
     use PathTrait;
     use QueryTrait;
     use FragmentTrait;
+    use RebaseTrait;
 
-    public static function fromString(string $uri): static
-    {
+    public static function fromString(
+        string $uri
+    ): static {
         $parts = parse_url($uri);
 
         if ($parts === false) {

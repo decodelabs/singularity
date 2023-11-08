@@ -15,6 +15,7 @@ use DecodeLabs\Singularity\Url;
 use DecodeLabs\Singularity\Url\Generic as GenericUrl;
 use DecodeLabs\Singularity\Urn;
 use DecodeLabs\Singularity\Urn\Generic as GenericUrn;
+use Psr\Http\Message\UriInterface as PsrUri;
 
 class Singularity
 {
@@ -22,7 +23,7 @@ class Singularity
      * @phpstan-return ($uri is null ? null : Uri)
      */
     public static function uri(
-        string|Uri|null $uri
+        string|PsrUri|Uri|null $uri
     ): ?Uri {
         if ($uri === null) {
             return null;
@@ -30,6 +31,10 @@ class Singularity
 
         if ($uri instanceof Uri) {
             return $uri;
+        }
+
+        if ($uri instanceof PsrUri) {
+            $uri = (string)$uri;
         }
 
         if (!preg_match('/^([a-z][a-z0-9+.-]*):/i', $uri, $matches)) {
@@ -65,7 +70,8 @@ class Singularity
      * @phpstan-return ($uri is null ? null : Url)
      */
     public static function url(
-        string|Uri|null $uri
+        string|PsrUri|Uri|null $uri,
+        string|PsrUri|Uri|null $relativeTo = null
     ): ?Url {
         $output = self::uri($uri);
 
@@ -74,12 +80,21 @@ class Singularity
             !$output instanceof Url
         ) {
             throw Exceptional::InvalidArgument(
-                'URI is not a URL'
+                'URI is not a URL: ' . $output
             );
+        }
+
+        if (
+            $output !== null &&
+            $relativeTo !== null
+        ) {
+            $relativeTo = self::url($relativeTo);
+            $output->rebase($relativeTo);
         }
 
         return $output;
     }
+
 
     /**
      * @phpstan-return ($uri is null ? null : Urn)

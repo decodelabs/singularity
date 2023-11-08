@@ -31,6 +31,7 @@ interface Url extends Uri, UriInterface
     public function withUsername(
         string|Closure|null $username
     ): static;
+
     public function getUsername(): string;
     public function hasUsername(): bool;
 
@@ -40,6 +41,7 @@ interface Url extends Uri, UriInterface
     public function withPassword(
         string|Closure|null $password
     ): static;
+
     public function getPassword(): string;
     public function hasPassword(): bool;
 
@@ -50,8 +52,12 @@ interface Url extends Uri, UriInterface
         string|Closure|null $username,
         string|null $password = null
     ): static;
+
     public function hasUserInfo(): bool;
-    public static function normalizeUserInfo(?string $credential): ?string;
+
+    public static function normalizeUserInfo(
+        ?string $credential
+    ): ?string;
 
     /**
      * @param string|Ip|Closure(string|Ip|null, static):(string|Ip|null)|null $host
@@ -59,8 +65,12 @@ interface Url extends Uri, UriInterface
     public function withHost(
         string|Ip|Closure|null $host
     ): static;
+
     public function hasHost(): bool;
-    public static function normalizeHost(?string $host): ?string;
+
+    public static function normalizeHost(
+        ?string $host
+    ): ?string;
 
     /**
      * @param int|string|Closure(?int, static):?int|null $port
@@ -68,7 +78,9 @@ interface Url extends Uri, UriInterface
     public function withPort(
         int|string|Closure|null $port
     ): static;
+
     public function hasPort(): bool;
+
     public static function normalizePort(
         int|string|null $port
     ): ?int;
@@ -79,8 +91,10 @@ interface Url extends Uri, UriInterface
     public function withPath(
         string|Path|Closure|null $path
     ): static;
+
     public function parsePath(): ?Path;
     public function hasPath(): bool;
+
     public static function normalizePath(
         string|Path|null $path
     ): ?string;
@@ -116,7 +130,11 @@ interface Url extends Uri, UriInterface
     public function withFragment(
         string|Closure|null $fragment
     ): static;
+
     public function hasFragment(): bool;
     public function isJustFragment(): bool;
-    public static function normalizeFragment(?string $fragment): ?string;
+
+    public static function normalizeFragment(
+        ?string $fragment
+    ): ?string;
 }

@@ -37,8 +37,9 @@ trait NoFragmentTrait
         return false;
     }
 
-    public static function normalizeFragment(?string $fragment): ?string
-    {
+    public static function normalizeFragment(
+        ?string $fragment
+    ): ?string {
         throw Exceptional::Logic(
             'This URL does not support a fragment'
         );

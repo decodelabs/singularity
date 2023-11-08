@@ -19,8 +19,9 @@ trait UrnTrait
     }
 
 
-    public static function normalizeNamespace(string $namespace): string
-    {
+    public static function normalizeNamespace(
+        string $namespace
+    ): string {
         $namespace = strtolower($namespace);
         $namespace = (string)preg_replace('/[^a-z0-9]/', '-', $namespace);
         $namespace = (string)preg_replace('/-+/', '-', $namespace);
@@ -48,8 +49,9 @@ trait UrnTrait
         return $this->identifier;
     }
 
-    public static function normalizeIdentifier(string $nss): string
-    {
+    public static function normalizeIdentifier(
+        string $nss
+    ): string {
         $nss = strtolower($nss);
         $nss = (string)preg_replace('/-+/', '-', $nss);
         $nss = trim($nss, '-');

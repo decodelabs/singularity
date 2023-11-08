@@ -21,6 +21,10 @@ interface Urn extends Uri
     public function withIdentifier(
         string|Closure $nss
     ): static;
+
     public function getIdentifier(): string;
-    public static function normalizeIdentifier(string $nss): string;
+
+    public static function normalizeIdentifier(
+        string $nss
+    ): string;
 }

@@ -107,8 +107,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * @param array<string> $data
      */
-    public function __unserialize(array $data): void
-    {
+    public function __unserialize(
+        array $data
+    ): void {
         $path = static::fromString($data[0]);
         $this->items = $path->items;
         $this->leadingSlash = $path->leadingSlash;
@@ -120,8 +121,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Should path include a leading slash?
      */
-    public function withLeadingSlash(bool $slash): static
-    {
+    public function withLeadingSlash(
+        bool $slash
+    ): static {
         $output = clone $this;
         $output->leadingSlash = $slash;
         return $output;
@@ -139,8 +141,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Should path include a trailing slash?
      */
-    public function withTrailingSlash(bool $slash): static
-    {
+    public function withTrailingSlash(
+        bool $slash
+    ): static {
         $output = clone $this;
         $output->trailingSlash = $slash;
         return $output;
@@ -159,8 +162,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Set path separator
      */
-    public function withSeparator(string $separator): static
-    {
+    public function withSeparator(
+        string $separator
+    ): static {
         $output = clone $this;
         $output->separator = $separator;
         return $output;
@@ -226,8 +230,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Set base name
      */
-    public function withBaseName(string $baseName): static
-    {
+    public function withBaseName(
+        string $baseName
+    ): static {
         return $this->set(-1, $baseName);
     }
 
@@ -243,8 +248,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Set file name (including extension)
      */
-    public function withFileName(?string $name): static
-    {
+    public function withFileName(
+        ?string $name
+    ): static {
         if ($name === null) {
             if ($this->trailingSlash) {
                 return $this;
@@ -282,8 +288,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Set file name (not including extension)
      */
-    public function withFileRoot(?string $root): static
-    {
+    public function withFileRoot(
+        ?string $root
+    ): static {
         if ($this->trailingSlash) {
             if ($root === null) {
                 return $this;
@@ -328,8 +335,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Set file extension
      */
-    public function withExtension(?string $extension): static
-    {
+    public function withExtension(
+        ?string $extension
+    ): static {
         $fileName = (string)$this->getFileRoot();
 
         if ($extension !== null) {
@@ -378,8 +386,9 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Does path have file extension / match given extensions?
      */
-    public function hasExtension(string ...$extensions): bool
-    {
+    public function hasExtension(
+        string ...$extensions
+    ): bool {
         if ($this->trailingSlash) {
             return false;
         }

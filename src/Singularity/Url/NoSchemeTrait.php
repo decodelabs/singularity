@@ -32,8 +32,9 @@ trait NoSchemeTrait
         return strtolower((new ReflectionClass($this))->getShortName());
     }
 
-    public static function normalizeScheme(string $scheme): string
-    {
+    public static function normalizeScheme(
+        string $scheme
+    ): string {
         throw Exceptional::Logic(
             'Typed URLs do not support schemes'
         );
