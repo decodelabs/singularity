@@ -1,3 +1,4 @@
+* Made PHP8.1 minimum version
 * Fixed check for rebasable URLs
 
 ## v0.2.5 (2023-11-08)
