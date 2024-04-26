@@ -1,5 +1,6 @@
 * Made PHP8.1 minimum version
 * Fixed check for rebasable URLs
+* Updated dependency list
 
 ## v0.2.5 (2023-11-08)
 * Added URL rebasing

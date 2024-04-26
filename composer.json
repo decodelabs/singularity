@@ -11,7 +11,6 @@
     "require": {
         "php": "^8.1",
 
-        "decodelabs/archetype": "^0.2.14",
         "decodelabs/collections": "^0.8.8",
         "decodelabs/compass": "^0.1.5",
         "decodelabs/exceptional": "^0.4.4",
@@ -21,7 +20,6 @@
         "psr/http-message": "^2.0"
     },
     "require-dev": {
-        "decodelabs/glitch": "^0.18.8",
         "decodelabs/phpstan-decodelabs": "^0.6.7"
     },
     "autoload": {
