@@ -13,6 +13,7 @@ use DecodeLabs\Singularity\Path;
 use DecodeLabs\Singularity\Uri;
 use DecodeLabs\Singularity\Url;
 use DecodeLabs\Singularity\Url\Generic as GenericUrl;
+use DecodeLabs\Singularity\Url\Rebasable;
 use DecodeLabs\Singularity\Urn;
 use DecodeLabs\Singularity\Urn\Generic as GenericUrn;
 use Psr\Http\Message\UriInterface as PsrUri;
@@ -85,7 +86,7 @@ class Singularity
         }
 
         if (
-            $output !== null &&
+            $output instanceof Rebasable &&
             $relativeTo !== null
         ) {
             $relativeTo = self::url($relativeTo);

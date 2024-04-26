@@ -1,3 +1,8 @@
+## v0.2.6 (2024-04-26)
+* Made PHP8.1 minimum version
+* Fixed check for rebasable URLs
+* Updated dependency list
+
 ## v0.2.5 (2023-11-08)
 * Added URL rebasing
 * Enforced Stringable interface
