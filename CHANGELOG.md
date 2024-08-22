@@ -1,3 +1,5 @@
+* Converted consts to PascalCase
+
 ## v0.2.7 (2024-08-21)
 * Updated dependencies
 

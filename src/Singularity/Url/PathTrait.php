@@ -64,7 +64,7 @@ trait PathTrait
         }
 
         $path = (string)preg_replace_callback(
-            '#(?:[^' . self::VALID_CHARACTERS . ')(:@&=\+\$,/;%]+|%(?![A-Fa-f0-9]{2}))#u',
+            '#(?:[^' . self::ValidCharacters . ')(:@&=\+\$,/;%]+|%(?![A-Fa-f0-9]{2}))#u',
             function ($matches) {
                 return rawurlencode($matches[0]);
             },

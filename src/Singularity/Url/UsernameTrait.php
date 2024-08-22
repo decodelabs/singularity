@@ -97,7 +97,7 @@ trait UsernameTrait
         }
 
         return preg_replace_callback(
-            '#(?:[^%' . self::VALID_CHARACTERS . self::DELIMITERS . ']+|%(?![A-Fa-f0-9]{2}))#u',
+            '#(?:[^%' . self::ValidCharacters . self::Delimiters . ']+|%(?![A-Fa-f0-9]{2}))#u',
             function ($matches) {
                 return rawurlencode($matches[0]);
             },
