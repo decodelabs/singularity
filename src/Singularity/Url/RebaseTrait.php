@@ -12,6 +12,9 @@ namespace DecodeLabs\Singularity\Url;
 use DecodeLabs\Singularity;
 use DecodeLabs\Singularity\Url;
 
+/**
+ * @phpstan-require-implements Rebasable
+ */
 trait RebaseTrait
 {
     public function rebase(

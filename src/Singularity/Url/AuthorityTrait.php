@@ -9,6 +9,11 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity\Url;
 
+use DecodeLabs\Singularity\Url;
+
+/**
+ * @phpstan-require-implements Url
+ */
 trait AuthorityTrait
 {
     public function getAuthority(): string

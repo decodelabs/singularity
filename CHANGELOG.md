@@ -1,3 +1,5 @@
+* Added @phpstan-require-implements constraints
+
 ## v0.2.8 (2024-08-21)
 * Converted consts to PascalCase
 

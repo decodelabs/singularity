@@ -12,7 +12,11 @@ namespace DecodeLabs\Singularity\Url;
 use Closure;
 use DecodeLabs\Collections\Tree;
 use DecodeLabs\Collections\Tree\NativeMutable as MutableTree;
+use DecodeLabs\Singularity\Url;
 
+/**
+ * @phpstan-require-implements Url
+ */
 trait QueryTrait
 {
     protected ?string $query = null;

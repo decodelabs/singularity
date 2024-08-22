@@ -11,6 +11,9 @@ namespace DecodeLabs\Singularity;
 
 use Closure;
 
+/**
+ * @phpstan-require-implements Urn
+ */
 trait UrnTrait
 {
     public function getScheme(): string

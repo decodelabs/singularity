@@ -12,7 +12,11 @@ namespace DecodeLabs\Singularity\Url;
 use Closure;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Singularity\Path;
+use DecodeLabs\Singularity\Url;
 
+/**
+ * @phpstan-require-implements Url
+ */
 trait NoPathTrait
 {
     public function withPath(
