@@ -13,7 +13,7 @@ use DecodeLabs\Exceptional;
 
 class Http extends Generic
 {
-    public const SCHEMES = [
+    protected const Schemes = [
         'http' => 80,
         'https' => 443,
         null => 443
@@ -24,7 +24,7 @@ class Http extends Generic
     ): ?string {
         $scheme = parent::normalizeScheme($scheme);
 
-        if (!isset(self::SCHEMES[$scheme])) {
+        if (!isset(self::Schemes[$scheme])) {
             throw Exceptional::InvalidArgument(
                 'Scheme ' . $scheme . ' is not supported'
             );
@@ -40,7 +40,7 @@ class Http extends Generic
 
     public function getPort(): ?int
     {
-        if ($this->port === self::SCHEMES[$this->scheme]) {
+        if ($this->port === self::Schemes[$this->scheme]) {
             return null;
         }
 
@@ -49,7 +49,7 @@ class Http extends Generic
 
     public function hasPort(): bool
     {
-        if ($this->port === self::SCHEMES[$this->scheme]) {
+        if ($this->port === self::Schemes[$this->scheme]) {
             return false;
         }
 

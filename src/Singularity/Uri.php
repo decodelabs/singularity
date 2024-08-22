@@ -13,8 +13,8 @@ use Stringable;
 
 interface Uri extends Stringable
 {
-    public const DELIMITERS = '!\$&\'\(\)\*\+,;=';
-    public const VALID_CHARACTERS = 'a-zA-Z0-9_\-\.~\pL';
+    public const Delimiters = '!\$&\'\(\)\*\+,;=';
+    public const ValidCharacters = 'a-zA-Z0-9_\-\.~\pL';
 
     public static function fromString(
         string $uri
