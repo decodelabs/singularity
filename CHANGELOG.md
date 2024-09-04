@@ -1,3 +1,4 @@
+## v0.2.9 (2024-09-04)
 * Added Archetype as a dependency
 * Added @phpstan-require-implements constraints
 
