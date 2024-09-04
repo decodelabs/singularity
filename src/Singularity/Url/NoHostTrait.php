@@ -12,7 +12,11 @@ namespace DecodeLabs\Singularity\Url;
 use Closure;
 use DecodeLabs\Compass\Ip;
 use DecodeLabs\Exceptional;
+use DecodeLabs\Singularity\Url;
 
+/**
+ * @phpstan-require-implements Url
+ */
 trait NoHostTrait
 {
     public function withHost(

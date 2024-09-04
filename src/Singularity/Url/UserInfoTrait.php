@@ -10,7 +10,11 @@ declare(strict_types=1);
 namespace DecodeLabs\Singularity\Url;
 
 use Closure;
+use DecodeLabs\Singularity\Url;
 
+/**
+ * @phpstan-require-implements Url
+ */
 trait UserInfoTrait
 {
     use UsernameTrait;

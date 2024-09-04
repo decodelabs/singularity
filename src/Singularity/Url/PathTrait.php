@@ -11,7 +11,11 @@ namespace DecodeLabs\Singularity\Url;
 
 use Closure;
 use DecodeLabs\Singularity\Path;
+use DecodeLabs\Singularity\Url;
 
+/**
+ * @phpstan-require-implements Url
+ */
 trait PathTrait
 {
     protected ?string $path = null;
