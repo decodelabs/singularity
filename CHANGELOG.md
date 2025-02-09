@@ -1,3 +1,5 @@
+* Added PHP8.4 to CI workflow
+
 ## v0.2.9 (2024-09-04)
 * Added Archetype as a dependency
 * Added @phpstan-require-implements constraints
