@@ -11,16 +11,19 @@ namespace DecodeLabs\Singularity\Url;
 
 use Closure;
 use DecodeLabs\Collections\Tree;
-use DecodeLabs\Collections\Tree\NativeMutable as MutableTree;
 use DecodeLabs\Singularity\Url;
 
 /**
  * @phpstan-require-implements Url
+ * @phpstan-type Query = string|array<int|float|string|null>|Tree<int|float|string|null>
  */
 trait QueryTrait
 {
-    protected ?string $query = null;
+    protected(set) ?string $query = null;
 
+    /**
+     * @param Query|Closure(Tree<int|float|string|null>,static):Query|null $query
+     */
     public function withQuery(
         string|array|Tree|Closure|null $query
     ): static {
@@ -51,8 +54,11 @@ trait QueryTrait
 
     public function parseQuery(): Tree
     {
-        /** @var Tree<int|float|string|null> */
-        $output = MutableTree::fromDelimitedString($this->query ?? '');
+        /**
+         * @var Tree<int|float|string|null>
+         * @phpstan-ignore-next-line
+         */
+        $output = Tree::fromDelimitedString($this->query ?? '');
         return $output;
     }
 
@@ -69,9 +75,9 @@ trait QueryTrait
         }
 
         if (is_array($query)) {
-            $query = new MutableTree($query);
+            $query = new Tree($query);
         } elseif (is_string($query)) {
-            $query = MutableTree::fromDelimitedString($query);
+            $query = Tree::fromDelimitedString($query);
         }
 
         return $query->toDelimitedString();

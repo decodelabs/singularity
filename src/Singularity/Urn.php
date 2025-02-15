@@ -13,6 +13,8 @@ use Closure;
 
 interface Urn extends Uri
 {
+    public string $identifier { get; }
+
     public function getNamespace(): string;
 
     /**

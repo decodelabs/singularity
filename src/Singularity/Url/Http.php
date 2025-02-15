@@ -13,7 +13,7 @@ use DecodeLabs\Exceptional;
 
 class Http extends Generic
 {
-    protected const Schemes = [
+    protected const array Schemes = [
         'http' => 80,
         'https' => 443,
         null => 443
@@ -26,7 +26,7 @@ class Http extends Generic
 
         if (!isset(self::Schemes[$scheme])) {
             throw Exceptional::InvalidArgument(
-                'Scheme ' . $scheme . ' is not supported'
+                message: 'Scheme ' . $scheme . ' is not supported'
             );
         }
 

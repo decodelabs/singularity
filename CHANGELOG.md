@@ -1,4 +1,10 @@
+## v0.3.0 (2025-02-15)
+* Added property hooks
+* Upgraded PHPStan to v2
+* Tidied boolean logic
+* Fixed Exceptional syntax
 * Added PHP8.4 to CI workflow
+* Made PHP8.4 minimum version
 
 ## v0.2.9 (2024-09-04)
 * Added Archetype as a dependency

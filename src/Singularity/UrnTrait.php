@@ -16,11 +16,9 @@ use Closure;
  */
 trait UrnTrait
 {
-    public function getScheme(): string
-    {
-        return 'urn';
+    public string $scheme {
+        get => $this->getScheme();
     }
-
 
     public static function normalizeNamespace(
         string $namespace
@@ -31,6 +29,11 @@ trait UrnTrait
         $namespace = trim($namespace, '-');
 
         return $namespace;
+    }
+
+    public function getScheme(): string
+    {
+        return 'urn';
     }
 
     public function withIdentifier(

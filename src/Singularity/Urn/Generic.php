@@ -18,8 +18,8 @@ class Generic implements Urn
 {
     use UrnTrait;
 
-    protected string $namespace;
-    protected string $identifier;
+    protected(set) string $namespace;
+    protected(set) string $identifier;
 
     /**
      * Create Generic URN from string
@@ -29,7 +29,7 @@ class Generic implements Urn
     ): static {
         if (!preg_match('/^urn:([a-z0-9][a-z0-9-]{1,31}):(.+)$/i', $urn, $matches)) {
             throw Exceptional::InvalidArgument(
-                'Invalid URN: ' . $urn
+                message: 'Invalid URN: ' . $urn
             );
         }
 
@@ -49,6 +49,8 @@ class Generic implements Urn
 
     /**
      * Replace namespace
+     *
+     * @param string|Closure(?string,static):string $namespace
      */
     public function withNamespace(
         string|Closure $namespace

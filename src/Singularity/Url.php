@@ -16,6 +16,15 @@ use Psr\Http\Message\UriInterface;
 
 interface Url extends Uri, UriInterface
 {
+    public ?string $username { get;}
+    public ?string $password { get;}
+    public ?string $host { get;}
+    public ?int $port { get;}
+    public ?string $authority { get;}
+    public ?string $path { get;}
+    public ?string $query { get;}
+    public ?string $fragment { get;}
+
     /**
      * @param string|Closure(string, static):string $scheme
      */

@@ -11,7 +11,6 @@ namespace DecodeLabs\Singularity\Url;
 
 use Closure;
 use DecodeLabs\Collections\Tree;
-use DecodeLabs\Collections\Tree\NativeMutable as MutableTree;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Singularity\Url;
 
@@ -20,11 +19,15 @@ use DecodeLabs\Singularity\Url;
  */
 trait NoQueryTrait
 {
+    public ?string $query {
+        get => null;
+    }
+
     public function withQuery(
         string|array|Tree|Closure|null $query
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a query'
+            message: 'This URL does not support a query'
         );
     }
 
@@ -40,14 +43,16 @@ trait NoQueryTrait
 
     public function parseQuery(): Tree
     {
-        return new MutableTree();
+        /** @var Tree<float|int|string|null> $output */
+        $output = new Tree();
+        return $output;
     }
 
     public static function normalizeQuery(
         string|array|Tree|null $query
     ): ?string {
         throw Exceptional::Logic(
-            'This URL does not support a query'
+            message: 'This URL does not support a query'
         );
     }
 }

@@ -35,9 +35,8 @@ class Generic implements
 
         if ($parts === false) {
             throw Exceptional::InvalidArgument(
-                'Unable to parse uri: ' . $uri,
-                null,
-                $uri
+                message: 'Unable to parse uri: ' . $uri,
+                data: $uri
             );
         }
 

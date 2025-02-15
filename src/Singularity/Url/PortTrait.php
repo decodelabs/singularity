@@ -18,8 +18,11 @@ use DecodeLabs\Singularity\Url;
  */
 trait PortTrait
 {
-    protected ?int $port = null;
+    protected(set) ?int $port = null;
 
+    /**
+     * @param int|string|Closure(int|null,static):(int|string|null)|null $port
+     */
     public function withPort(
         int|string|Closure|null $port
     ): static {
@@ -57,7 +60,7 @@ trait PortTrait
 
         if (!is_numeric($port)) {
             throw Exceptional::InvalidArgument(
-                'Invalid port: ' . $port
+                message: 'Invalid port: ' . $port
             );
         }
 
@@ -70,7 +73,7 @@ trait PortTrait
             $port > 65535
         ) {
             throw Exceptional::InvalidArgument(
-                'Invalid port: ' . $port
+                message: 'Invalid port: ' . $port
             );
         }
 

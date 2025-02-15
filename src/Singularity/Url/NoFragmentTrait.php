@@ -18,11 +18,15 @@ use DecodeLabs\Singularity\Url;
  */
 trait NoFragmentTrait
 {
+    public ?string $fragment {
+        get => null;
+    }
+
     public function withFragment(
         string|Closure|null $fragment
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a fragment'
+            message: 'This URL does not support a fragment'
         );
     }
 
@@ -45,7 +49,7 @@ trait NoFragmentTrait
         ?string $fragment
     ): ?string {
         throw Exceptional::Logic(
-            'This URL does not support a fragment'
+            message: 'This URL does not support a fragment'
         );
     }
 }

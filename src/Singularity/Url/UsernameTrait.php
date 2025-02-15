@@ -18,8 +18,11 @@ use DecodeLabs\Singularity\Url;
  */
 trait UsernameTrait
 {
-    protected ?string $username = null;
+    protected(set) ?string $username = null;
 
+    /**
+     * @param string|null|Closure(?string,static):?string $username
+     */
     public function withUsername(
         string|Closure|null $username
     ): static {
@@ -52,7 +55,7 @@ trait UsernameTrait
         string|Closure|null $password
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a password'
+            message: 'This URL does not support a password'
         );
     }
 
