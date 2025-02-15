@@ -19,11 +19,15 @@ use DecodeLabs\Singularity\Url;
  */
 trait NoHostTrait
 {
+    public ?string $host {
+        get => null;
+    }
+
     public function withHost(
         string|Ip|Closure|null $host
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a host'
+            message: 'This URL does not support a host'
         );
     }
 
@@ -46,7 +50,7 @@ trait NoHostTrait
         string|Ip|null $host
     ): ?string {
         throw Exceptional::Logic(
-            'This URL does not support a host'
+            message: 'This URL does not support a host'
         );
     }
 }

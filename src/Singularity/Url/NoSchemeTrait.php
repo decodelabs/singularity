@@ -12,18 +12,28 @@ namespace DecodeLabs\Singularity\Url;
 use Closure;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Singularity\Url;
+use ReflectionClass;
 
 /**
  * @phpstan-require-implements Url
  */
 trait NoSchemeTrait
 {
+    public string $scheme {
+        get => $this->getScheme();
+    }
+
     public function withScheme(
         string|Closure $scheme
     ): static {
         throw Exceptional::Logic(
-            'Typed URLs do not support changing schemes'
+            message: 'Typed URLs do not support changing schemes'
         );
+    }
+
+    public function getScheme(): string
+    {
+        return strtolower(new ReflectionClass($this)->getShortName());
     }
 
     public function hasScheme(): bool
@@ -31,16 +41,11 @@ trait NoSchemeTrait
         return true;
     }
 
-    public function getScheme(): string
-    {
-        return strtolower((new ReflectionClass($this))->getShortName());
-    }
-
     public static function normalizeScheme(
         string $scheme
     ): string {
         throw Exceptional::Logic(
-            'Typed URLs do not support schemes'
+            message: 'Typed URLs do not support schemes'
         );
     }
 }

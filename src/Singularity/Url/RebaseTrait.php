@@ -39,7 +39,7 @@ trait RebaseTrait
 
         if (!$output->hasScheme()) {
             try {
-                $output = $output->withScheme($base->getScheme());
+                $output = $output->withScheme($base->scheme);
             } catch (LogicException $e) {
             }
         }

@@ -47,7 +47,7 @@ class Singularity
         if ($scheme === 'Urn') {
             if (!preg_match('/^urn:([a-z0-9][a-z0-9-]{1,31}):/i', $uri, $matches)) {
                 throw Exceptional::InvalidArgument(
-                    'Invalid URN: ' . $uri
+                    message: 'Invalid URN: ' . $uri
                 );
             }
 
@@ -81,7 +81,7 @@ class Singularity
             !$output instanceof Url
         ) {
             throw Exceptional::InvalidArgument(
-                'URI is not a URL: ' . $output
+                message: 'URI is not a URL: ' . $output
             );
         }
 
@@ -110,7 +110,7 @@ class Singularity
             !$output instanceof Urn
         ) {
             throw Exceptional::InvalidArgument(
-                'URI is not a URN'
+                message: 'URI is not a URN'
             );
         }
 

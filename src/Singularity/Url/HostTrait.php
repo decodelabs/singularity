@@ -19,7 +19,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait HostTrait
 {
-    protected ?string $host = null;
+    protected(set) ?string $host = null;
 
     public function withHost(
         string|Ip|Closure|null $host
@@ -76,13 +76,13 @@ trait HostTrait
 
         if (!$host = idn_to_ascii($host, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46)) {
             throw Exceptional::InvalidArgument(
-                'Invalid host: ' . $host
+                message: 'Invalid host: ' . $host
             );
         }
 
         if (preg_match('/[^a-z0-9\.\-]/', $host)) {
             throw Exceptional::InvalidArgument(
-                'Invalid host: ' . $host
+                message: 'Invalid host: ' . $host
             );
         }
 

@@ -18,15 +18,20 @@ use DecodeLabs\Singularity\Url;
  */
 trait SchemeTrait
 {
-    protected ?string $scheme;
+    protected(set) ?string $scheme {
+        get => $this->scheme ?? 'https';
+    }
 
+    /**
+     * @param string|null|Closure(?string,static):?string $scheme
+     */
     public function withScheme(
-        string|Closure $scheme
+        string|Closure|null $scheme
     ): static {
         $output = clone $this;
 
         if ($scheme instanceof Closure) {
-            $scheme = $scheme($this->scheme ?? 'https', $this);
+            $scheme = $scheme($this->scheme, $this);
         }
 
         $output->scheme = static::normalizeScheme($scheme);
@@ -55,7 +60,7 @@ trait SchemeTrait
 
         if (!preg_match('/^[a-z][a-z0-9+.-]*$/', $scheme)) {
             throw Exceptional::InvalidArgument(
-                'Invalid scheme: ' . $scheme
+                message: 'Invalid scheme: ' . $scheme
             );
         }
 

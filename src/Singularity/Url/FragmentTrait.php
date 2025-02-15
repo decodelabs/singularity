@@ -17,7 +17,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait FragmentTrait
 {
-    protected ?string $fragment = null;
+    protected(set) ?string $fragment = null;
 
     public function withFragment(
         string|Closure|null $fragment

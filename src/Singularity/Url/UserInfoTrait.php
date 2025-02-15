@@ -19,8 +19,11 @@ trait UserInfoTrait
 {
     use UsernameTrait;
 
-    protected ?string $password = null;
+    protected(set) ?string $password = null;
 
+    /**
+     * @param string|null|Closure(?string,static):?string $password
+     */
     public function withPassword(
         string|Closure|null $password
     ): static {
@@ -73,7 +76,9 @@ trait UserInfoTrait
 
     public function hasUserInfo(): bool
     {
-        return $this->hasUsername() || $this->hasPassword();
+        return
+            $this->hasUsername() ||
+            $this->hasPassword();
     }
 
     public function getUserInfo(): string

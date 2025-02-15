@@ -19,11 +19,15 @@ use DecodeLabs\Singularity\Url;
  */
 trait NoPathTrait
 {
+    public ?string $path {
+        get => null;
+    }
+
     public function withPath(
         string|Path|Closure|null $path
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a path'
+            message: 'This URL does not support a path'
         );
     }
 
@@ -46,7 +50,7 @@ trait NoPathTrait
         string|Path|null $path
     ): ?string {
         throw Exceptional::Logic(
-            'This URL does not support a path'
+            message: 'This URL does not support a path'
         );
     }
 }

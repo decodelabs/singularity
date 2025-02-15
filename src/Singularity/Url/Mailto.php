@@ -26,6 +26,12 @@ class Mailto implements
     use QueryTrait;
     use NoFragmentTrait;
 
+
+    public string $scheme {
+        get => $this->getScheme();
+    }
+
+
     public static function fromString(
         string $uri
     ): static {
@@ -33,9 +39,8 @@ class Mailto implements
 
         if ($parts === false) {
             throw Exceptional::InvalidArgument(
-                'Unable to parse uri',
-                null,
-                $uri
+                message: 'Unable to parse uri',
+                data: $uri
             );
         }
 

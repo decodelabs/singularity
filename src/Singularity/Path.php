@@ -9,17 +9,37 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Singularity;
 
-use DecodeLabs\Collections\Sequence\NativeImmutable as NativeImmutableSequence;
+use DecodeLabs\Collections\ImmutableSequence;
 use DecodeLabs\Glitch\Dumpable;
 
 /**
- * @extends NativeImmutableSequence<string>
+ * @extends ImmutableSequence<string>
  */
-class Path extends NativeImmutableSequence implements Dumpable
+class Path extends ImmutableSequence implements Dumpable
 {
-    protected string $separator = '/';
-    protected bool $leadingSlash = false;
-    protected bool $trailingSlash = false;
+    protected(set) string $separator = '/';
+    protected(set) bool $leadingSlash = false;
+    protected(set) bool $trailingSlash = false;
+
+    public string $dirName {
+        get => $this->getDirName();
+    }
+
+    public ?string $baseName {
+        get => $this->getBaseName();
+    }
+
+    public ?string $fileName {
+        get => $this->getFileName();
+    }
+
+    public ?string $fileRoot {
+        get => $this->getFileRoot();
+    }
+
+    public ?string $extension {
+        get => $this->getExtension();
+    }
 
 
     /**
@@ -221,7 +241,7 @@ class Path extends NativeImmutableSequence implements Dumpable
     /**
      * Get dirname
      */
-    public function getDirname(): string
+    public function getDirName(): string
     {
         return dirname($this->__toString() . 'a') . '/';
     }

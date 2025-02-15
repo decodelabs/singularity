@@ -18,11 +18,15 @@ use DecodeLabs\Singularity\Url;
  */
 trait NoPortTrait
 {
+    public ?int $port {
+        get => null;
+    }
+
     public function withPort(
         int|string|Closure|null $port
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a port'
+            message: 'This URL does not support a port'
         );
     }
 
@@ -40,7 +44,7 @@ trait NoPortTrait
         int|string|null $port
     ): ?int {
         throw Exceptional::Logic(
-            'This URL does not support a port'
+            message: 'This URL does not support a port'
         );
     }
 }

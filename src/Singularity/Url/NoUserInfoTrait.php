@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace DecodeLabs\Singularity\Url;
 
 use Closure;
+use DecodeLabs\Exceptional;
 use DecodeLabs\Singularity\Url;
 
 /**
@@ -17,11 +18,19 @@ use DecodeLabs\Singularity\Url;
  */
 trait NoUserInfoTrait
 {
+    public ?string $username {
+        get => null;
+    }
+
+    public ?string $password {
+        get => null;
+    }
+
     public function withUsername(
         string|Closure|null $username
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a username'
+            message: 'This URL does not support a username'
         );
     }
 
@@ -39,7 +48,7 @@ trait NoUserInfoTrait
         string|Closure|null $password
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support a password'
+            message: 'This URL does not support a password'
         );
     }
 
@@ -58,7 +67,7 @@ trait NoUserInfoTrait
         string|null $password = null
     ): static {
         throw Exceptional::Logic(
-            'This URL does not support user info'
+            message: 'This URL does not support user info'
         );
     }
 
@@ -76,7 +85,7 @@ trait NoUserInfoTrait
         ?string $credential
     ): ?string {
         throw Exceptional::Logic(
-            'This URL does not support user info'
+            message: 'This URL does not support user info'
         );
     }
 }

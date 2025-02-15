@@ -16,6 +16,18 @@ use DecodeLabs\Singularity\Url;
  */
 trait AuthorityTrait
 {
+    public ?string $authority {
+        get {
+            $output = $this->getAuthority();
+
+            if(empty($output)) {
+                return null;
+            }
+
+            return $output;
+        }
+    }
+
     public function getAuthority(): string
     {
         $output = '';
