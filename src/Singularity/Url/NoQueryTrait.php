@@ -43,7 +43,7 @@ trait NoQueryTrait
 
     public function parseQuery(): Tree
     {
-        /** @var Tree<float|int|string|null> $output */
+        /** @var Tree<float|int|bool|string> $output */
         $output = new Tree();
         return $output;
     }

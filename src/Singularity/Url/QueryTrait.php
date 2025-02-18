@@ -21,9 +21,6 @@ trait QueryTrait
 {
     protected(set) ?string $query = null;
 
-    /**
-     * @param Query|Closure(Tree<int|float|string|null>,static):Query|null $query
-     */
     public function withQuery(
         string|array|Tree|Closure|null $query
     ): static {
@@ -55,7 +52,7 @@ trait QueryTrait
     public function parseQuery(): Tree
     {
         /**
-         * @var Tree<int|float|string|null>
+         * @var Tree<int|float|bool|string>
          * @phpstan-ignore-next-line
          */
         $output = Tree::fromDelimitedString($this->query ?? '');
@@ -75,6 +72,7 @@ trait QueryTrait
         }
 
         if (is_array($query)) {
+            // @phpstan-ignore-next-line
             $query = new Tree($query);
         } elseif (is_string($query)) {
             $query = Tree::fromDelimitedString($query);

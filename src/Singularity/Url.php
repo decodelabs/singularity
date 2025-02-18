@@ -112,21 +112,21 @@ interface Url extends Uri, UriInterface
 
 
     /**
-     * @param string|array<int|float|string|null>|Tree<int|float|string|null>|Closure(Tree<int|float|string|null>, static): (string|array<int|float|string|null>|Tree<int|float|string|null>|null)|null $query
+     * @param string|array<int|float|string|null>|Tree<int|float|bool|string>|Closure(Tree<int|float|bool|string>,static=):(string|array<int|float|string|null>|Tree<int|float|bool|string>|null)|null $query
      */
     public function withQuery(
         string|array|Tree|Closure|null $query
     ): static;
 
     /**
-     * @return Tree<int|float|string|null>
+     * @return Tree<int|float|bool|string>
      */
     public function parseQuery(): Tree;
 
     public function hasQuery(): bool;
 
     /**
-     * @param string|array<int|float|string|null>|Tree<int|float|string|null>|null $query
+     * @param string|array<int|float|string|null>|Tree<int|float|bool|string>|null $query
      */
     public static function normalizeQuery(
         string|array|Tree|null $query

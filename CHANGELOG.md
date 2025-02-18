@@ -1,3 +1,6 @@
+## v0.3.1 (2025-02-18)
+* Fixed Tree parameter in withQuery()
+
 ## v0.3.0 (2025-02-15)
 * Added property hooks
 * Upgraded PHPStan to v2
