@@ -18,9 +18,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait SchemeTrait
 {
-    protected(set) ?string $scheme {
-        get => $this->scheme ?? 'https';
-    }
+    protected(set) ?string $scheme;
 
     /**
      * @param string|null|Closure(?string,static):?string $scheme

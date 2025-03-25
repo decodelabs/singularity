@@ -1,3 +1,6 @@
+## v0.3.2 (2025-03-25)
+* Allow scheme to be null
+
 ## v0.3.1 (2025-02-18)
 * Fixed Tree parameter in withQuery()
 
