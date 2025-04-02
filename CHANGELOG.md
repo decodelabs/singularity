@@ -1,3 +1,6 @@
+## v0.3.3 (2025-04-02)
+* Upgraded Collections dependency
+
 ## v0.3.2 (2025-03-25)
 * Allow scheme to be null
 
