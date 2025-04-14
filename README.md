@@ -11,8 +11,6 @@
 
 Singularity provides a unified interface for parsing and resolving URIs, PSR-7 URLs and file paths.
 
-_Get news and updates on the [DecodeLabs blog](https://blog.decodelabs.com)._
-
 ---
 
 ## Installation
