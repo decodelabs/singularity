@@ -1,60 +1,142 @@
-## v0.3.3 (2025-04-02)
-* Upgraded Collections dependency
+# Changelog
 
-## v0.3.2 (2025-03-25)
-* Allow scheme to be null
+All notable changes to this project will be documented in this file.<br>
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.3.1 (2025-02-18)
-* Fixed Tree parameter in withQuery()
+### Unreleased
+--
 
-## v0.3.0 (2025-02-15)
-* Added property hooks
-* Upgraded PHPStan to v2
-* Tidied boolean logic
-* Fixed Exceptional syntax
-* Added PHP8.4 to CI workflow
-* Made PHP8.4 minimum version
+---
 
-## v0.2.9 (2024-09-04)
-* Added Archetype as a dependency
-* Added @phpstan-require-implements constraints
+### [v0.3.3](https://github.com/decodelabs/singularity/commits/v0.3.3) - 2nd April 2025
 
-## v0.2.8 (2024-08-21)
-* Converted consts to PascalCase
+- Upgraded Collections dependency
 
-## v0.2.7 (2024-08-21)
-* Updated dependencies
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.3.2...v0.3.3)
 
-## v0.2.6 (2024-04-26)
-* Made PHP8.1 minimum version
-* Fixed check for rebasable URLs
-* Updated dependency list
+---
 
-## v0.2.5 (2023-11-08)
-* Added URL rebasing
-* Enforced Stringable interface
+### [v0.3.2](https://github.com/decodelabs/singularity/commits/v0.3.2) - 25th March 2025
 
-## v0.2.4 (2023-11-02)
-* Added support for fragment-only URLs
-* Added hasUserInfo() method
-* Added NoUserInfoTrait
+- Allow scheme to be null
 
-## v0.2.3 (2023-11-02)
-* Added support for no-schema HTTPS URLs
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.3.1...v0.3.2)
 
-## v0.2.2 (2023-10-30)
-* Handle URLs with no scheme as https
+---
 
-## v0.2.1 (2023-10-30)
-* Added PSR-17 Uri Factory
+### [v0.3.1](https://github.com/decodelabs/singularity/commits/v0.3.1) - 18th February 2025
 
-## v0.2.0 (2023-10-30)
-* Consolidated getQueryTree methods to parse*() format
-* Added Path parser
-* Added IP support
-* Added remaining No*Trait URL traits
-* Allow null and parsed objects in all with*() methods
-* Added parse callback support to with*() methods
+- Fixed Tree parameter in withQuery()
 
-## v0.1.0 (2023-10-29)
-* Built initial URI interface structure
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.3.0...v0.3.1)
+
+---
+
+### [v0.3.0](https://github.com/decodelabs/singularity/commits/v0.3.0) - 15th February 2025
+
+- Added property hooks
+- Upgraded PHPStan to v2
+- Tidied boolean logic
+- Fixed Exceptional syntax
+- Added PHP8.4 to CI workflow
+- Made PHP8.4 minimum version
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.9...v0.3.0)
+
+---
+
+### [v0.2.9](https://github.com/decodelabs/singularity/commits/v0.2.9) - 4th September 2024
+
+- Added Archetype as a dependency
+- Added @phpstan-require-implements constraints
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.8...v0.2.9)
+
+---
+
+### [v0.2.8](https://github.com/decodelabs/singularity/commits/v0.2.8) - 21st August 2024
+
+- Converted consts to PascalCase
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.7...v0.2.8)
+
+---
+
+### [v0.2.7](https://github.com/decodelabs/singularity/commits/v0.2.7) - 21st August 2024
+
+- Updated dependencies
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.6...v0.2.7)
+
+---
+
+### [v0.2.6](https://github.com/decodelabs/singularity/commits/v0.2.6) - 26th April 2024
+
+- Made PHP8.1 minimum version
+- Fixed check for rebasable URLs
+- Updated dependency list
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.5...v0.2.6)
+
+---
+
+### [v0.2.5](https://github.com/decodelabs/singularity/commits/v0.2.5) - 8th November 2023
+
+- Added URL rebasing
+- Enforced Stringable interface
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.4...v0.2.5)
+
+---
+
+### [v0.2.4](https://github.com/decodelabs/singularity/commits/v0.2.4) - 2nd November 2023
+
+- Added support for fragment-only URLs
+- Added hasUserInfo() method
+- Added NoUserInfoTrait
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.3...v0.2.4)
+
+---
+
+### [v0.2.3](https://github.com/decodelabs/singularity/commits/v0.2.3) - 2nd November 2023
+
+- Added support for no-schema HTTPS URLs
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.2...v0.2.3)
+
+---
+
+### [v0.2.2](https://github.com/decodelabs/singularity/commits/v0.2.2) - 30th October 2023
+
+- Handle URLs with no scheme as https
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.1...v0.2.2)
+
+---
+
+### [v0.2.1](https://github.com/decodelabs/singularity/commits/v0.2.1) - 30th October 2023
+
+- Added PSR-17 Uri Factory
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.2.0...v0.2.1)
+
+---
+
+### [v0.2.0](https://github.com/decodelabs/singularity/commits/v0.2.0) - 30th October 2023
+
+- Consolidated getQueryTree methods to parse*() format
+- Added Path parser
+- Added IP support
+- Added remaining No*Trait URL traits
+- Allow null and parsed objects in all with*() methods
+- Added parse callback support to with*() methods
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.1.0...v0.2.0)
+
+---
+
+### [v0.1.0](https://github.com/decodelabs/singularity/commits/v0.1.0) - 29th October 2023
+
+- Built initial URI interface structure
