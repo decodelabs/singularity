@@ -10,7 +10,8 @@ declare(strict_types=1);
 namespace DecodeLabs\Singularity\Url;
 
 use DecodeLabs\Exceptional;
-use DecodeLabs\Glitch\Dumpable;
+use DecodeLabs\Nuance\Dumpable;
+use DecodeLabs\Nuance\Entity\NativeObject as NuanceEntity;
 use DecodeLabs\Singularity\Url;
 
 class Generic implements
@@ -103,11 +104,12 @@ class Generic implements
         return $output;
     }
 
-    public function glitchDump(): iterable
+    public function toNuanceEntity(): NuanceEntity
     {
-        yield 'definition' => $this->__toString();
+        $entity = new NuanceEntity($this);
+        $entity->definition = $this->__toString();
 
-        yield 'meta' => [
+        $entity->meta = [
             'scheme' => $this->scheme,
             'username' => $this->username,
             'password' => $this->password,
@@ -117,5 +119,7 @@ class Generic implements
             'query' => $this->query,
             'fragment' => $this->fragment
         ];
+
+        return $entity;
     }
 }

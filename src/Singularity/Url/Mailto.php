@@ -10,7 +10,8 @@ declare(strict_types=1);
 namespace DecodeLabs\Singularity\Url;
 
 use DecodeLabs\Exceptional;
-use DecodeLabs\Glitch\Dumpable;
+use DecodeLabs\Nuance\Dumpable;
+use DecodeLabs\Nuance\Entity\NativeObject as NuanceEntity;
 use DecodeLabs\Singularity\Url;
 
 class Mailto implements
@@ -94,16 +95,15 @@ class Mailto implements
         return $output;
     }
 
-    public function glitchDump(): iterable
+    public function toNuanceEntity(): NuanceEntity
     {
-        $properties = [
-            'email' => $this->getEmailAddress()
-        ];
+        $entity = new NuanceEntity($this);
+        $entity->setProperty('email', $this->getEmailAddress());
 
         if ($this->query !== null) {
-            $properties['query'] = $this->query;
+            $entity->setProperty('query', $this->query);
         }
 
-        yield 'properties' => $properties;
+        return $entity;
     }
 }

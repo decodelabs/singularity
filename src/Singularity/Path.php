@@ -10,7 +10,8 @@ declare(strict_types=1);
 namespace DecodeLabs\Singularity;
 
 use DecodeLabs\Collections\ImmutableSequence;
-use DecodeLabs\Glitch\Dumpable;
+use DecodeLabs\Nuance\Dumpable;
+use DecodeLabs\Nuance\Entity\NativeObject as NuanceEntity;
 
 /**
  * @extends ImmutableSequence<string>
@@ -458,18 +459,18 @@ class Path extends ImmutableSequence implements Dumpable
     }
 
 
-    /**
-     * Export for dump inspection
-     */
-    public function glitchDump(): iterable
+    public function toNuanceEntity(): NuanceEntity
     {
-        yield 'definition' => $this->__toString();
+        $entity = new NuanceEntity($this);
+        $entity->definition = $this->__toString();
 
-        yield 'meta' => [
+        $entity->meta = [
             'items' => $this->items,
             'leadingSlash' => $this->leadingSlash,
             'trailingSlash' => $this->trailingSlash,
             'separator' => $this->separator
         ];
+
+        return $entity;
     }
 }
