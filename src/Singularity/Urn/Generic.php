@@ -18,8 +18,8 @@ class Generic implements Urn
 {
     use UrnTrait;
 
-    protected(set) string $namespace;
-    protected(set) string $identifier;
+    public protected(set) string $namespace;
+    public protected(set) string $identifier;
 
     /**
      * Create Generic URN from string

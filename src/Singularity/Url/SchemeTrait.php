@@ -18,7 +18,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait SchemeTrait
 {
-    protected(set) ?string $scheme;
+    public protected(set) ?string $scheme;
 
     /**
      * @param string|null|Closure(?string,static):?string $scheme

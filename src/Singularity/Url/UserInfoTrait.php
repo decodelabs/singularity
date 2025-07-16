@@ -19,7 +19,7 @@ trait UserInfoTrait
 {
     use UsernameTrait;
 
-    protected(set) ?string $password = null;
+    public protected(set) ?string $password = null;
 
     /**
      * @param string|null|Closure(?string,static):?string $password

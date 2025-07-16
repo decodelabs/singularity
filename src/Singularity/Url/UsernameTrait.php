@@ -18,7 +18,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait UsernameTrait
 {
-    protected(set) ?string $username = null;
+    public protected(set) ?string $username = null;
 
     /**
      * @param string|null|Closure(?string,static):?string $username

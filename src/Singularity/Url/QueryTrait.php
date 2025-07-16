@@ -19,7 +19,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait QueryTrait
 {
-    protected(set) ?string $query = null;
+    public protected(set) ?string $query = null;
 
     public function withQuery(
         string|array|Tree|Closure|null $query

@@ -18,7 +18,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait PortTrait
 {
-    protected(set) ?int $port = null;
+    public protected(set) ?int $port = null;
 
     /**
      * @param int|string|Closure(int|null,static):(int|string|null)|null $port

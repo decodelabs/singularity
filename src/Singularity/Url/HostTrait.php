@@ -19,7 +19,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait HostTrait
 {
-    protected(set) ?string $host = null;
+    public protected(set) ?string $host = null;
 
     public function withHost(
         string|Ip|Closure|null $host

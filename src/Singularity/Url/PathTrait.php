@@ -18,7 +18,7 @@ use DecodeLabs\Singularity\Url;
  */
 trait PathTrait
 {
-    protected(set) ?string $path = null;
+    public protected(set) ?string $path = null;
 
     /**
      * @param string|Path|Closure(?Path,static):(string|Path|null)|null $path

@@ -18,9 +18,9 @@ use DecodeLabs\Nuance\Entity\NativeObject as NuanceEntity;
  */
 class Path extends ImmutableSequence implements Dumpable
 {
-    protected(set) string $separator = '/';
-    protected(set) bool $leadingSlash = false;
-    protected(set) bool $trailingSlash = false;
+    public protected(set) string $separator = '/';
+    public protected(set) bool $leadingSlash = false;
+    public protected(set) bool $trailingSlash = false;
 
     public string $dirName {
         get => $this->getDirName();

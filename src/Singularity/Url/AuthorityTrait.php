@@ -20,7 +20,7 @@ trait AuthorityTrait
         get {
             $output = $this->getAuthority();
 
-            if(empty($output)) {
+            if (empty($output)) {
                 return null;
             }
 
