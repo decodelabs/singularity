@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace DecodeLabs;
 
+use DecodeLabs\Kingdom\PureService;
+use DecodeLabs\Kingdom\PureServiceTrait;
 use DecodeLabs\Singularity\Path;
 use DecodeLabs\Singularity\Uri;
 use DecodeLabs\Singularity\Url;
@@ -18,10 +20,16 @@ use DecodeLabs\Singularity\Urn;
 use DecodeLabs\Singularity\Urn\Generic as GenericUrn;
 use Psr\Http\Message\UriInterface as PsrUri;
 
-class Singularity
+class Singularity implements PureService
 {
+    use PureServiceTrait;
+
+    public function __construct()
+    {
+    }
+
     /**
-     * @phpstan-return ($uri is null ? null : Uri)
+     * @return ($uri is null ? null : Uri)
      */
     public static function uri(
         string|PsrUri|Uri|null $uri
@@ -44,6 +52,8 @@ class Singularity
             $scheme = ucfirst(strtolower($matches[1]));
         }
 
+        $archetype = Monarch::getService(Archetype::class);
+
         if ($scheme === 'Urn') {
             if (!preg_match('/^urn:([a-z0-9][a-z0-9-]{1,31}):/i', $uri, $matches)) {
                 throw Exceptional::InvalidArgument(
@@ -51,7 +61,7 @@ class Singularity
                 );
             }
 
-            if (!$class = Archetype::tryResolve(Urn::class, $matches[1])) {
+            if (!$class = $archetype->tryResolve(Urn::class, $matches[1])) {
                 $class = GenericUrn::class;
             }
         } else {
@@ -59,7 +69,7 @@ class Singularity
                 $scheme = 'Http';
             }
 
-            if (!$class = Archetype::tryResolve(Url::class, $scheme)) {
+            if (!$class = $archetype->tryResolve(Url::class, $scheme)) {
                 $class = GenericUrl::class;
             }
         }
@@ -68,7 +78,7 @@ class Singularity
     }
 
     /**
-     * @phpstan-return ($uri is null ? null : Url)
+     * @return ($uri is null ? null : Url)
      */
     public static function url(
         string|PsrUri|Uri|null $uri,
@@ -98,7 +108,7 @@ class Singularity
 
 
     /**
-     * @phpstan-return ($uri is null ? null : Urn)
+     * @return ($uri is null ? null : Urn)
      */
     public static function urn(
         string|Uri|null $uri
