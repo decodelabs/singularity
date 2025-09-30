@@ -15,6 +15,8 @@ Singularity provides a unified interface for parsing and resolving URIs, PSR-7 U
 
 ## Installation
 
+This package requires PHP 8.4 or higher.
+
 Install via Composer:
 
 ```bash
