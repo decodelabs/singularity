@@ -17,7 +17,7 @@
         "decodelabs/exceptional": "^0.6.3",
         "decodelabs/kingdom": "^0.2",
         "decodelabs/monarch": "^0.2.1",
-        "decodelabs/nuance": "^0.1.9",
+        "decodelabs/nuance": "^0.2",
 
         "psr/http-factory": "^1.1",
         "psr/http-message": "^2.0"
