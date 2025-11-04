@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package Singularity
- * @license http://opensource.org/licenses/MIT
+ * Singularity
+ * @license https://opensource.org/licenses/MIT
  */
 
 declare(strict_types=1);
