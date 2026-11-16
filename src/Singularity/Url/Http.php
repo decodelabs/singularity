@@ -16,7 +16,7 @@ class Http extends Generic
     protected const array Schemes = [
         'http' => 80,
         'https' => 443,
-        null => 443
+        '' => 443
     ];
 
     public static function normalizeScheme(
@@ -24,7 +24,7 @@ class Http extends Generic
     ): ?string {
         $scheme = parent::normalizeScheme($scheme);
 
-        if (!isset(self::Schemes[$scheme])) {
+        if (!isset(self::Schemes[$scheme ?? ''])) {
             throw Exceptional::InvalidArgument(
                 message: 'Scheme ' . $scheme . ' is not supported'
             );
@@ -40,7 +40,7 @@ class Http extends Generic
 
     public function getPort(): ?int
     {
-        if ($this->port === self::Schemes[$this->scheme]) {
+        if ($this->port === self::Schemes[$this->scheme ?? '']) {
             return null;
         }
 
@@ -49,7 +49,7 @@ class Http extends Generic
 
     public function hasPort(): bool
     {
-        if ($this->port === self::Schemes[$this->scheme]) {
+        if ($this->port === self::Schemes[$this->scheme ?? '']) {
             return false;
         }
 
