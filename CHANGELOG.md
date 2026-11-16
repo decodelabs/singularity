@@ -5,10 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Unreleased
+--
+
+---
+
+### [v0.4.3](https://github.com/decodelabs/singularity/commits/v0.4.3) - 16th November 2026
+
 - Replaced null HTTP scheme keys while preserving scheme-less HTTPS port defaults
 - Improved doc comment headers
 - Added AGENTS.md
 - Integrated Chorus dev dependency
+
+[Full list of changes](https://github.com/decodelabs/singularity/compare/v0.4.2...v0.4.3)
 
 ---
 
@@ -186,4 +194,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### [v0.1.0](https://github.com/decodelabs/singularity/commits/v0.1.0) - 29th October 2023
 
 - Built initial URI interface structure
-
